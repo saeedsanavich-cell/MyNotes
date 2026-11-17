@@ -1,5 +1,6 @@
 package com.example.mynotes
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -63,7 +64,7 @@ private fun persist(context: Context, notes: List<Note>) {
         .edit().putString("items", a.toString()).apply()
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 private fun NotesScreen(context: Context) {
     val notes = remember { mutableStateListOf<Note>().apply { addAll(loadNotes(context)) } }
